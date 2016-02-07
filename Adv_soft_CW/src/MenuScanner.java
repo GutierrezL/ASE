@@ -46,8 +46,8 @@ public class MenuScanner {
             System.exit(1);        	
         }
         catch (NumberFormatException nfe) {
-        	System.out.println(data[0] + ": Hours worked not a number :" + data[2]);
-        	System.out.println("Program stopped");
+        	System.out.println(data[0] + ": Price is not a number :" + data[1]);
+        	System.out.println("Program terminated");
         	System.exit(1);
         }
         finally  {
@@ -55,10 +55,11 @@ public class MenuScanner {
         		buff.close();
         	}
         	catch (IOException ioe) {
-        		//don't do anything
+        		//do not do anything
         	}
         }
         }
+   
     public MenuItemMap getMenuEntries(){
     	return menuEntries;
     }

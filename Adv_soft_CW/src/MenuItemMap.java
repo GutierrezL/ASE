@@ -11,7 +11,6 @@ import java.util.TreeMap;
 /**
  * A class for storing the items on the menu.
  * @author Linda
- *
  */
 public class MenuItemMap {
 	
@@ -24,11 +23,10 @@ public class MenuItemMap {
 	}
 
 	public void put(String name, MenuItem m) {
-		// TODO Auto-generated method stub
 		menuItemMap.put(name, m);
 	}
 
-	public String printMenu(){
+	public String listByName(){
 		String menu = "";
 		  // Get a set of the entries
 	      Set set = menuItemMap.entrySet();
@@ -43,8 +41,9 @@ public class MenuItemMap {
 		return menu;
 	}
 	
-	
-	
-	
+	//public MenuItem findByName(String item_name){
+		//MenuItem m;
+		//return m;
+	//}
 }
 
