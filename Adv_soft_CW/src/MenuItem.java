@@ -122,7 +122,7 @@ public class MenuItem {
      * @return the string (V), if the item is vegetarian, and a blank string, if the item is not vegetarian.
      */
     public String isVegeterianPrint(){
-    	String is_veg = "";
+    	String is_veg = "   ";
     	if (this.isVegetarian){
     		is_veg = "(V)";
     	}

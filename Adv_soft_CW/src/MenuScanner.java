@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,13 +14,15 @@ public class MenuScanner {
         BufferedReader buff = null;
     	String data [] = new String[4];
         try {
-        	buff = new BufferedReader(new FileReader("MenuInput.txt"));
+        	File file = new File("src/MenuInput.txt");
+        	//for(String fileNames : file.list()) System.out.println(fileNames);
+        	buff = new BufferedReader(new FileReader(file));
 	    	String inputLine = buff.readLine();  //read first line
 	    	while(inputLine != null){  
 	    		
 	    		//split line into parts
 	    		data  = inputLine.split(";");
-	    		for (int i=0; i<5; i++){
+	    		for (int i=0; i<4; i++){
 	    			data[i] = data[i].trim();
 	    		}
 	    		
@@ -55,5 +58,9 @@ public class MenuScanner {
         		//don't do anything
         	}
         }
+        }
+    public MenuItemMap getMenuEntries(){
+    	return menuEntries;
     }
 }
+
