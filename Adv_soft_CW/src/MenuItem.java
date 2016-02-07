@@ -15,7 +15,6 @@ public class MenuItem {
 	private double itemPrice;
 	private String category;
 	private boolean isVegetarian;
-	private static final String [] categories = new String[]{"Starter","Main", "Dessert", "Side", "Drink"};
 	DecimalFormat df = new DecimalFormat("#.00"); //For formatting the price value
 	
 	/**

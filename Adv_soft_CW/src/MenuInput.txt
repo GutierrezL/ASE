@@ -1,22 +1,21 @@
-Dish name            Price    Category    Vegetarian
-Garlic bread         3.00     Starter     Yes
-Mixed olives         2.50     Starter     Yes
-Salmon cakes         4.00     Starter     No
-Minestrone soup      3.50     Starter     No                       
-Steak                25.00    Main        No
-Mushroom risotto     12.50    Main        Yes
-Grilled seabass      14.00    Main        No
-Roast chicken        14.50    Main        No
-Lasagne              15.00    Main        No
-Roasted vegetables   3.50     Side        Yes
-Salad                2.00     Side        Yes
-Cajun fries          2.50     Side        Yes
-French fries         2.50     Side        Yes
-Custard tart         1.50     Dessert     Yes
-Lemon sorbet         3.50     Dessert     Yes
-Rhubarb crumble      3.50     Dessert     Yes
-Baked cheesecake     4.00     Dessert     Yes
-Coffee               2.00     Drink       Yes
-Tea                  1.50     Drink       Yes
-Sparkling water      2.50     Drink       Yes
-Juice                2.50     Drink       Yes
+Garlic bread;         3.00;     Starter;     true
+Mixed olives;         2.50;     Starter;     false
+Salmon cakes;         4.00;     Starter;     false
+Minestrone soup;      3.50;     Starter;     false                       
+Steak;                25.00;    Main;        false
+Mushroom risotto;     12.50;    Main;        true
+Grilled seabass;      14.00;    Main;        false
+Roast chicken;        14.50;    Main;        false
+Lasagne;              15.00;    Main;        false
+Roasted vegetables;   3.50;     Side;        true
+Salad;                2.00;     Side;        true
+Cajun fries;          2.50;     Side;        true
+French fries;         2.50;     Side;        true
+Custard tart;         1.50;     Dessert;     true
+Lemon sorbet;         3.50;     Dessert;     true
+Rhubarb crumble;      3.50;     Dessert;     true
+Baked cheesecake;     4.00;     Dessert;     true
+Coffee;               2.00;     Drink;       true
+Tea;                  1.50;     Drink;       true
+Sparkling water;      2.50;     Drink;       true
+Juice;                2.50;     Drink;       true
