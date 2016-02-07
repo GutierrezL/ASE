@@ -1,4 +1,6 @@
-/**
+import java.text.DecimalFormat;
+
+/*
  * Advanced Software Engineering coursework
  * @author Linda Viksne
  */
@@ -14,6 +16,7 @@ public class MenuItem {
 	private String category;
 	private boolean isVegetarian;
 	private static final String [] categories = new String[]{"Starter","Main", "Dessert", "Side", "Drink"};
+	DecimalFormat df = new DecimalFormat("#.00"); //For formatting the price value
 	
 	/**
 	 * 
@@ -29,49 +32,102 @@ public class MenuItem {
 		isVegetarian = is_vegetarian;
 	}
 	
-	/*
-	 * Returns the name of the item on the menu
+	/**
+	 * Returns the name of the item on the menu.
+	 * @return a string with the name of the MenuItem.
 	 */
 	public String getName(){
 		return itemName;
 	}
 	
-	/*
-	 * Returns the price of the item on the menu
+	/**
+	 * Returns the price of the item on the menu.
+	 * @return a double with the price of the MenuItem.
 	 */
 	public double getPrice(){
 		return itemPrice;
 	}
 	
-	/*
-	 * Returns the category of the item on the menu
+	/**
+	 * Returns the category of the item on the menu.
+	 * @return a string with the category of the MenuItem.
 	 */
 	public String getCategory(){
 		return category;
 	}
 	
-	/*
-	 * Sets a new name for the item on the menu
+	/**
+	 * Sets a new name for the item on the menu.
 	 * @param new_name   the new name of the item on the menu
 	 */
 	public void setName(String new_name){
 		itemName = new_name;
 	}
 	
-	/*
-	 * Sets a new price for the item on the menu
+	/**
+	 * Sets a new price for the item on the menu.
 	 * @param new_price   the price of the item on the menu
 	 */
 	public void setPrice(String new_price){
 		itemName = new_price;
 	}
 	
-	/*
-	 * Sets a new category for the item on the menu
+	/**
+	 * Sets a new category for the item on the menu.
 	 * @param new_category   the category of the item on the menu
 	 */
 	public void setCategory(String new_category){
 		category = new_category;
 	}
+	
+	 /**
+     * Test for content equality between two objects.
+     * @param other The object to compare to the one in question.
+     * @return true, if the argument object has the same itemName, false, if it does not.
+     */
+    public boolean equals(Object other)
+    {
+        if(other instanceof MenuItem) {
+            MenuItem otherMenuItem = (MenuItem) other;
+            return itemName.equals(otherMenuItem.getName());
+        }
+        else {
+            return false;
+        }
+    }
+
+    /**
+     * Compare this MenuItem object with another one for reasons.
+     * The objects are compared by their itemName attribute.
+     * @param otherMenuItem The object that the MenuItem in question will be compared against.
+     * @return a negative integer if the itemName comes before the parameter's itemName,
+     *         zero, if they are equal, and a positive integer, if it comes after the other.
+     */
+    public int compareTo(MenuItem otherMenuItem)
+    {
+        return itemName.compareTo(otherMenuItem.getName());
+    }    
+
+    /**
+     * Returns a description of the menu item (name, if it is vegetarian, price).
+     * @return a string containing the name, if it is vegetarian and price of the menu item.
+     */
+    public String printItemSummary()
+    {
+        String padded = String.format("%-20s", this.itemName);
+    	return padded + " " + this.isVegeterianPrint() + " " + df.format(itemPrice);
+    }
+    /**
+     * Checks, if the item on the menu is vegetarian or not, i.e. if MenuItem attribute isVegetarian
+     * is true (in which case it is vegetarian) or false in which case it is not.
+     * @return the string (V), if the item is vegetarian, and a blank string, if the item is not vegetarian.
+     */
+    public String isVegeterianPrint(){
+    	String is_veg = "";
+    	if (this.isVegetarian){
+    		is_veg = "(V)";
+    	}
+    	return is_veg;
+    }
 }	
 	
