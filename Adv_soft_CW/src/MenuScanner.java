@@ -31,7 +31,7 @@ public class MenuScanner {
 	    		boolean is_veg = Boolean.parseBoolean(data[3]);
 	    		MenuItem m = new MenuItem(data[0], price, data[2], is_veg);
 	    		//add to list
-	            menuEntries.put(m.getName(), m);
+	            menuEntries.addItem(m);
 	            //read next line
 	            inputLine = buff.readLine();
 	            
