@@ -17,7 +17,8 @@ public class Main {
 		
 		MenuScanner s = new MenuScanner();
 		menuMap = s.getMenuEntries();
-		menuMap.listByName();
+		System.out.println(menuMap.listByName());
+		System.out.println(menuMap.listByCategory());
 		
 		
 	}

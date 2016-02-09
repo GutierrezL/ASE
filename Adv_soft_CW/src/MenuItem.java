@@ -96,17 +96,30 @@ public class MenuItem {
     }
 
     /**
-     * Compare this MenuItem object with another one for reasons.
+     * Compare this MenuItem object with another one for sorting reasons.
      * The objects are compared by their itemName attribute.
      * @param otherMenuItem The object that the MenuItem in question will be compared against.
      * @return a negative integer if the itemName comes before the parameter's itemName,
      *         zero, if they are equal, and a positive integer, if it comes after the other.
      */
-    public int compareTo(MenuItem otherMenuItem)
+    public int compareByNameTo(MenuItem otherMenuItem)
     {
         return itemName.compareTo(otherMenuItem.getName());
     }    
 
+    /**
+     * Compare this MenuItem object with another one for sorting reasons.
+     * The objects are compared by their category attribute.
+     * @param otherMenuItem The object that the MenuItem in question will be compared against.
+     * @return a negative integer if the category comes before the parameter's category,
+     *         zero, if they are equal, and a positive integer, if it comes after the other.
+     *         If two are equal, they will be ordered alphabetically/
+     */
+    public int compareByCategoryTo(MenuItem otherMenuItem)
+    {
+        return itemName.compareTo(otherMenuItem.getCategory());
+    }    
+    
     /**
      * Returns a description of the menu item (name, if it is vegetarian, price).
      * @return a string containing the name, if it is vegetarian and price of the menu item.

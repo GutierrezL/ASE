@@ -12,18 +12,21 @@ public class MenuScanner {
         menuEntries = new MenuItemMap();
         
         BufferedReader buff = null;
-    	String data [] = new String[4];
+        String data [] = new String[4];
         try {
         	File file = new File("src/MenuInput.txt");
-        	//for(String fileNames : file.list()) System.out.println(fileNames);
         	buff = new BufferedReader(new FileReader(file));
 	    	String inputLine = buff.readLine();  //read first line
+	    	int line_count=0;
 	    	while(inputLine != null){  
 	    		
 	    		//split line into parts
 	    		data  = inputLine.split(";");
 	    		for (int i=0; i<4; i++){
 	    			data[i] = data[i].trim();
+	    			if (data[i] == null){
+	    				System.out.println("Missing information on line " + ". Could not be added.");
+	    			}
 	    		}
 	    		
 	    		//create MenuItem object
@@ -46,9 +49,7 @@ public class MenuScanner {
             System.exit(1);        	
         }
         catch (NumberFormatException nfe) {
-        	System.out.println(data[0] + ": Price is not a number :" + data[1]);
-        	System.out.println("Program terminated");
-        	System.exit(1);
+        	System.out.println("Error adding '" + data[0] + "'. Price '" +data[1]+ "' is not a number.");
         }
         finally  {
         	try{
