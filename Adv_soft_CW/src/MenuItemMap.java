@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -16,9 +14,7 @@ import java.util.TreeMap;
 public class MenuItemMap {
 	
 	private TreeMap<String, MenuItem> menuItemMap;
-	//String array containing all the valid MenuItem categories
-	private static final String [] categories = new String[]{"Starter","Main", "Side", "Dessert", "Drink"};
-	
+
 	public MenuItemMap(){
 		menuItemMap = new TreeMap<String, MenuItem>();    
 	}
@@ -39,19 +35,13 @@ public class MenuItemMap {
 	 * @param new_item the new MenuItem to be added.
 	 */
 	public void addItem(MenuItem new_item) {
-		String category = new_item.getCategory();
 		String name = new_item.getName();
-		//Checks, if the category name is valid, i.e. if it is in the String array categories.
-		boolean valid_category = Arrays.asList(categories).contains(category);
+		
 		if (findByName(name)!=null){
 			String error = "Could not add '" + name + "'. Duplicate value.";
 			System.out.println(error);
-		} else if (!valid_category){
-			//If the category, is not valid, the item is not added to the MenuItemMap
-			//And an error message is shown
-				String error = "Could not add " + name + ". '" + category + "' is not a valid menu item category.";
-				System.out.println(error);
-		} else {
+		} 
+		else {
 			menuItemMap.put(name, new_item);
 		}
 	}
@@ -93,6 +83,7 @@ public class MenuItemMap {
 		return menu;
 	}
 	
+	
 	/**
 	 * Returns a string showing all the MenuItem-s in the MenuItemMap grouped by category 
 	 * in alphabetical order for each category.
@@ -100,22 +91,41 @@ public class MenuItemMap {
 	 */
 	public String listByCategory(){
 		String menu = "\r\nMENU \r\n==== \r\n";
-		for (int i=0; i < categories.length; i++){
-			String category = categories[i];
-			menu += category.toUpperCase() + "\r\n";
-			Set set = menuItemMap.entrySet();
-		    // Get an iterator
-		    Iterator iterator = set.iterator();
-		    // Display elements
-		    while(iterator.hasNext()) {
+		Set set = menuItemMap.entrySet();
+	    // Get an iterator
+	    Iterator iterator = set.iterator();
+	    // Create a string for each menu item category
+	    String starters = "STARERS\r\n";
+	    String mains = "MAINS\r\n";
+	    String sides = "SIDES\r\n";
+	    String desserts = "DESSERTS\r\n";
+	    String drinks = "DRINKS\r\n";   
+	    /*
+	     * to avoid having to iterate through the TreeMap several times, the category
+	     * of each item (iterated by name in alphabetical order) is determined
+	     * and from this, the details of the item are added to the corresponding
+	     * category's string. All the strings are joined together at the end to 
+	     * form the menu.
+	     */
+	    while(iterator.hasNext()) {
 		       Map.Entry me = (Map.Entry)iterator.next();
 		       MenuItem m = (MenuItem) me.getValue();
-		       String categ = m.getCategory();
-		       if (categ.equals(categories[i])){
-		         menu += "    " + m.printItemSummary() + "\r\n";
+		       String categ = m.getCategory().toLowerCase();
+		       if (categ.equals("starter")){
+		    	   starters += "    " + m.printItemSummary() + "\r\n";
+		       } else if (categ.equals("main")){
+		    	   mains += "    " + m.printItemSummary() + "\r\n";
+		       } else if (categ.equals("side")){
+		    	   sides += "    " + m.printItemSummary() + "\r\n";
+		       } else if (categ.equals("dessert")){
+				     desserts += "    " + m.printItemSummary() + "\r\n";
+		       } else if (categ.equals("drink")){
+				     drinks += "    " + m.printItemSummary() + "\r\n";
+		       } else {
+		    	   System.out.println("Ooops, somethign went wrong.");}
 		       }
-		         }
-		}	
+	    //the strings of all menu item categories being joined together
+	    menu += starters + mains + sides + desserts + drinks;
 		return menu;
 	}
 	

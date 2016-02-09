@@ -14,6 +14,7 @@ French fries;         2.50;     Side;        true
 Custard tart;         1.50;     Dessert;     true
 Lemon sorbet;         3.50;     Dessert;     true
 Rhubarb crumble;      3.50;     Dessert;     true
+
 Baked cheesecake;     4.00;     Dessert;     true
 Coffee;               2.00;     Drink;       true
 Tea;                  1.50;     Drink;       true
@@ -23,5 +24,6 @@ Juice;                2.50;     Drink;       true
 Volkswagen;           5000;     Car;         false
 Vanilla cheesecake;   A;     Dessert;     true
 Juice;                2.50;     Drink;       true
-Tea;                  1.50;     Dog;       true
-Vanilla cheesecake;   ; ;     
+Wine;                2.50;     Drink;       yes
+Pastry
+Vanilla cheesecake;   2; ;     
