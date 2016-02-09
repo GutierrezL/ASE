@@ -84,7 +84,8 @@ public class MenuItem {
      * @param other The object to compare to the one in question.
      * @return true, if the argument object has the same itemName, false, if it does not.
      */
-    public boolean equals(Object other)
+    @Override
+	public boolean equals(Object other)
     {
         if(other instanceof MenuItem) {
             MenuItem otherMenuItem = (MenuItem) other;

@@ -43,9 +43,8 @@ public class MenuItemMap {
 		String name = new_item.getName();
 		//Checks, if the category name is valid, i.e. if it is in the String array categories.
 		boolean valid_category = Arrays.asList(categories).contains(category);
-		
 		if (findByName(name)!=null){
-			String error = "Could not add '" + name + "' . Duplicate value.";
+			String error = "Could not add '" + name + "'. Duplicate value.";
 			System.out.println(error);
 		} else if (!valid_category){
 			//If the category, is not valid, the item is not added to the MenuItemMap
@@ -57,15 +56,7 @@ public class MenuItemMap {
 		}
 	}
 	
-	public boolean inMap(String item_name){
-		boolean contains_name = false;
-		Set set = menuItemMap.keySet();
-	    if (set.contains(item_name)){
-	    	contains_name = true;
-	    }
-	    return contains_name;
-	}
-	
+
 	/**
 	 * Removes the MenuItem, identified by its name, from the MenuItemMap.
 	 * @param item_name the name of the MenuItem.

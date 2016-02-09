@@ -19,16 +19,15 @@ public class MenuScanner {
 	    	String inputLine = buff.readLine();  //read first line
 	    	int line_count=0;
 	    	while(inputLine != null){  
-	    		
-	    		//split line into parts
-	    		data  = inputLine.split(";");
-	    		for (int i=0; i<4; i++){
-	    			data[i] = data[i].trim();
-	    			if (data[i] == null){
-	    				System.out.println("Missing information on line " + ". Could not be added.");
+	    		try {
+	    			//split line into parts
+	    			data  = inputLine.split(";");
+	    			for (int i=0; i<4; i++){
+	    				data[i] = data[i].trim();
+	    				if (data[i] == null){
+	    					System.out.println("Missing information on line " + ". Could not be added.");
+	    				}
 	    			}
-	    		}
-	    		
 	    		//create MenuItem object
 	    		double price = Double.parseDouble(data[1]);
 	    		boolean is_veg = Boolean.parseBoolean(data[3]);
@@ -37,20 +36,21 @@ public class MenuScanner {
 	            menuEntries.addItem(m);
 	            //read next line
 	            inputLine = buff.readLine();
-	            
-	        }
-        }
-        catch(FileNotFoundException e) {
-        	System.out.println(e.getMessage());
-            System.exit(1);
-        }
-        catch (IOException e) {
-        	e.printStackTrace();
-            System.exit(1);        	
-        }
-        catch (NumberFormatException nfe) {
-        	System.out.println("Error adding '" + data[0] + "'. Price '" +data[1]+ "' is not a number.");
-        }
+	    		
+	    		}catch (NumberFormatException nfe) {
+	    			System.out.println("Error adding '" + data[0] + "'. Price '" +data[1]+ "' is not a number.");
+	    			inputLine = buff.readLine();
+	    		}
+	    	}
+        } catch(FileNotFoundException e) {
+	         	System.out.println(e.getMessage());
+	             System.exit(1);
+	         }
+	         catch (IOException e) {
+	         	e.printStackTrace();
+	             System.exit(1);        	
+	         }
+	    		
         finally  {
         	try{
         		buff.close();
