@@ -29,6 +29,14 @@ public class MenuItemMap {
 		return item;
 	}
 	
+	/**
+	 * Returns the MenuItemMap containing all the MenuItem-s as values and their names
+	 * as keys.
+	 * @return the TreeMap <String, MenuItem> containing all the MenuItem-s.
+	 */
+	public TreeMap<String, MenuItem> getMenuItemMap(){
+		return menuItemMap;
+	}
 	
 	/**
 	 * Adds a new MenuItem to the MenuItemMap.
@@ -129,5 +137,15 @@ public class MenuItemMap {
 		return menu;
 	}
 	
+	/**
+	 * Checks, if the key set of the MenuItemMap contains the 
+	 * string given as an argument.
+	 * @param item_name String containing the name of the item.
+	 * @return true, if the key set contains the string in the argument
+	 * and false, if it does not.
+	 */
+	public boolean containsItem(String item_name){
+	       return menuItemMap.containsKey(item_name);
+	}
 }
 
